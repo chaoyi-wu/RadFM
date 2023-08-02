@@ -1,0 +1,24 @@
+{
+    "caption_prompt": [
+            "Can you provide a radiology report for this medical image?",
+            "Describe the medical image you see.",
+            "What is depicted in this picture?",
+            "Please report this medical scan.",
+            "What is the medical significance of this image?",
+            "What can you infer from this picture?",
+            "Can you provide a quick summary of this image?",
+            "Describe this medical scan.",
+            "Please write a radiology report for this image.",
+            "Can you summarize the images presented?",
+            "Please generate a radiology report for this scan.",
+            "Describe the regions of interest in this scan.",
+            "Please provide a caption for this medical image.",
+            "Can you provide a brief summary of this radiograph?",
+            "Describe the structures involved in this medical image.",
+            "What are the findings presented in this medical scan?",
+            "Please write a radiology report for this scan.",
+            "Can you provide a description of this medical scan?",
+            "Please caption this medical scan.",
+            "Can you provide a report summary for this medical scan?"
+            ]
+}

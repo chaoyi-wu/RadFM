@@ -1,0 +1,20 @@
+{
+    "caption_prompt": [
+                "Is the disease visible in the image?",
+                "Does the image show signs of disease?",
+                "Does the image show any disease?",
+                "Is there any disease in the affected area?",
+                "Does the image depict any visible disease?",
+                "Is there an presence of disease in the image?",
+                "Are there any visible signs of disease in the image?",
+                "Does the image exhibit any disease?",
+                "Are there disease visible in the image?",
+                "Does the image show any signs of disease?",
+                "Can you identify any visible signs of disease in the image?",
+                "Is there any indication of disease in the image?",
+                "Does the image show signs of disease?",
+                "Does the image show any visible signs of disease?"
+            ]
+}
+
+

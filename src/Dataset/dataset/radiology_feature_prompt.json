@@ -1,0 +1,14 @@
+{
+    "caption_prompt": [
+        "What disease can be diagnosed from these radiological images and what specific features are typically observed on the images?",
+        "Identify the disease that is typically associated with these radiological images and describe the classic radiological presentation.",
+        "Based on the provided images, which disease is most likely to be diagnosed and how does it manifest on radiological examinations?",
+        "Determine the disease that corresponds to the given radiographic images and describe the characteristic radiological features.",
+        "With these radiological images, which disease would you suspect and what specific radiographic patterns are typically seen?",
+        "Analyze the provided images and identify the disease that is commonly associated with such radiological findings. Discuss the characteristic radiographic manifestations.",
+        "From these radiological images, diagnose the disease and explain the typical radiological presentation observed.",
+        "Assess the radiographic images and determine the disease that is commonly linked to these findings. Describe the typical radiological features associated with this disease.",
+        "Examine the provided radiological images and identify the disease that would most likely be diagnosed based on the characteristic radiologic appearance.",
+        "Based on the presented radiographic findings, indicate the disease that is commonly associated with these images and describe the typical radiological patterns observed."
+    ]
+}

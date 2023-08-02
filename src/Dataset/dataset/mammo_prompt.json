@@ -1,0 +1,25 @@
+{
+    "caption_prompt": [
+            "What is the diagnosis for this mammogram?",
+            "Based on this X-ray, what type of breast disease is suspected?",
+            "Can you identify any abnormality in this mammogram?",
+            "What are the findings in this mammogram?",
+            "What pathology is indicated by this mammogram?",
+            "What lung disease is likely present in this mammogram?",
+            "What are the potential causes of the findings in this mammogram?",
+            "What are your conclusions from this mammogram?",
+            "What is your interpretation of this mammogram?",
+            "What abnormalities are present in this mammogram?",
+            "What is the differential diagnosis for the findings in this mammogram?",
+            "What is the diagnosis for this breast X-ray?",
+            "Can you identify any abnormality in this breast X-ray?",
+            "What are the findings in this breast X-ray?",
+            "What pathology is indicated by this breast X-ray?",
+            "What lung disease is likely present in this breast X-ray?",
+            "What are the potential causes of the findings in this breast X-ray?",
+            "What are your conclusions from this breast X-ray?",
+            "What is your interpretation of this breast X-ray?",
+            "What abnormalities are present in this breast X-ray?",
+            "What is the differential diagnosis for the findings in this breast X-ray?"
+            ]
+}

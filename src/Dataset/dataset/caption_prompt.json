@@ -1,0 +1,19 @@
+{
+    "caption_prompt": [
+            "Can you provide a caption consists of finding and impression for this medical image?",
+            "Describe the finding and impression of the medical image you see.",
+            "Please caption this medical scan with finding and impression.",
+            "What is the finding and impression of this image?",
+            "Describe this medical scan with finding and impression.",
+            "Please write a caption consists of finding and impression for this image.",
+            "Can you summarize with finding and impression the images presented?",
+            "Please caption this scan with finding and impression.",
+            "Please provide a caption consists of finding and impression for this medical image.",
+            "Can you provide a summary consists of finding and impression of this radiograph?",
+            "What are the findings and impression presented in this medical scan?",
+            "Please write a caption consists of finding and impression for this scan.",
+            "Can you provide a description consists of finding and impression of this medical scan?",
+            "Please caption this medical scan with finding and impression.",
+            "Can you provide a caption consists of finding and impression for this medical scan?"
+            ]
+}

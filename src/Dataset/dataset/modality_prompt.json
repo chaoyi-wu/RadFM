@@ -1,0 +1,14 @@
+{
+    "caption_prompt": [
+        "What modality is used to take this image?",
+        "What type of imaging modality is used to acquire the above image?",
+        "What imaging modality is used?",
+        "What imaging modality was used to take this image?",
+        "What is the imaging modality?"
+    ],
+    "modality_prompt": [
+        "Is this image a modality scan?",
+        "Is the given image a modality scan?",
+        "Is the given image a modality?"
+    ]
+}
