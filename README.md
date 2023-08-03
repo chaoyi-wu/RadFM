@@ -12,6 +12,7 @@ Our pre-train code is given in ```./src/train.py```.
 * Modify the path as you disire, and check ```./src/train.py``` to pre-train.
 
 ## To-do list:
+- Polish the code for easier usage.
 - Update a easy sample for quick start.
 
 ## Key Links
