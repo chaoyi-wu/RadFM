@@ -27,23 +27,26 @@ MedKD Dataset dowloading URL:
 | MPx-series | - | Restricted Access |
 | PMC-Inline | https://huggingface.co/datasets/chaoyi-wu/PMC-Inline | Open Access |
 | PMC-CaseReport | [Original version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport_original), [Filtered version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport) | Open Access |
-| VinDr-Mammo~\cite{vindrmammo} | https://www.physionet.org/content/vindr-mammo/1.0.0/ | Credentialed Access |
-| VinDr-SpineXR~\cite{vindrspine} | https://www.physionet.org/content/vindr-spinexr/1.0.0/ | Credentialed Access |
-| VinDr-PCXR~\cite{vindrpcxr} | https://physionet.org/content/vindr-pcxr/1.0.0/ | Credentialed Access |
-| PMC-OA~\cite{lin2023pmc} | https://huggingface.co/datasets/axiong/pmc_oa_beta | Open Access |
-| PMC-VQA~\cite{Zhang2023PMCVQAVI} | https://huggingface.co/datasets/xmcmic/PMC-VQA | Open Access |
-| VQA-RAD~\cite{lau2018dataset} | https://osf.io/89kps/| Open Access |
-| SLAKE~\cite{liu2021slake} | https://www.med-vqa.com/slake/ | Open Access |
-| MIMIC-CXR~\cite{johnson2019mimic} | https://physionet.org/content/mimic-cxr/2.0.0 | Credentialed Access |
-| VinDr-CXR~\cite{nguyen2022vindr} | https://physionet.org/content/vindr-cxr/1.0.0/ | Credentialed Access |
-| NIH ChestXray14~\cite{wang2017chestx} | https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/36938765345 | Open Access |
-| CheXpert~\cite{irvin2019chexpert} | https://aimi.stanford.edu/chexpert-chest-x-rays | Open Access |
-| Covid-CXR2~\cite{pavlova2021covid} | https://www.kaggle.com/datasets/andyczhao/covidx-cxr2 | Open Access |
-| NLM-TB~\cite{jaeger2014two} | [Montgomery](https://openi.nlm.nih.gov/imgs/collections/NLM-MontgomeryCXRSet.zip), [ChinaSet](https://openi.nlm.nih.gov/imgs/collections/ChinaSet_AllFiles.zip) | Open Access |
-| Object-CXR~\cite{objectcxr} | https://web.archive.org/web/20201127235812/https://jfhealthcare.github.io/object-CXR/ | Open Access |
-| OpenI~\cite{demner2016preparing} | https://www.kaggle.com/datasets/raddar/chest-xrays-indiana-university | Open Access |
-| RSNA~\cite{shih2019augmenting}| https://www.rsna.org/education/ai-resources-and-training/ai-image-challenge/rsna-pneumonia-detection-challenge-2018| Open Access |
-| SIIM-ACR~\cite{filice2020crowdsourcing} | https://www.kaggle.com/datasets/jesperdramsch/siim-acr-pneumothorax-segmentation-data| Open Access |
+| VinDr-Mammo | https://www.physionet.org/content/vindr-mammo/1.0.0/ | Credentialed Access |
+| VinDr-SpineXR | https://www.physionet.org/content/vindr-spinexr/1.0.0/ | Credentialed Access |
+| VinDr-PCXR | https://physionet.org/content/vindr-pcxr/1.0.0/ | Credentialed Access |
+| PMC-OA | https://huggingface.co/datasets/axiong/pmc_oa_beta | Open Access |
+| PMC-VQA | https://huggingface.co/datasets/xmcmic/PMC-VQA | Open Access |
+| VQA-RAD | https://osf.io/89kps/| Open Access |
+| SLAKE | https://www.med-vqa.com/slake/ | Open Access |
+| MIMIC-CXR | https://physionet.org/content/mimic-cxr/2.0.0 | Credentialed Access |
+| VinDr-CXR | https://physionet.org/content/vindr-cxr/1.0.0/ | Credentialed Access |
+| NIH ChestXray14 | https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/36938765345 | Open Access |
+| CheXpert | https://aimi.stanford.edu/chexpert-chest-x-rays | Open Access |
+| Covid-CXR2 | https://www.kaggle.com/datasets/andyczhao/covidx-cxr2 | Open Access |
+| NLM-TB | [Montgomery](https://openi.nlm.nih.gov/imgs/collections/NLM-MontgomeryCXRSet.zip), [ChinaSet](https://openi.nlm.nih.gov/imgs/collections/ChinaSet_AllFiles.zip) | Open Access |
+| Object-CXR | https://web.archive.org/web/20201127235812/https://jfhealthcare.github.io/object-CXR/ | Open Access |
+| OpenI | https://www.kaggle.com/datasets/raddar/chest-xrays-indiana-university | Open Access |
+| RSNA| https://www.rsna.org/education/ai-resources-and-training/ai-image-challenge/rsna-pneumonia-detection-challenge-2018| Open Access |
+| SIIM-ACR | https://www.kaggle.com/datasets/jesperdramsch/siim-acr-pneumothorax-segmentation-data| Open Access |
+
+## Ackowledgement:
+We sincerely thank all the contributors who uploaded the relevant data in our dataset online. We appreciate their willingness to make these valuable cases publicly available.
 
 ## Contact
 If you have any question, please feel free to contact wtzxxxwcy02@sjtu.edu.cn.
