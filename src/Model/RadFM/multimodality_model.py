@@ -66,10 +66,10 @@ class MultiLLaMAForCausalLM(nn.Module):
                 logits =  Accuracy,
                 loss = output['loss'],
             )
-            
-        if labels.shape == vision_x.shape:
-            self.embedding_layer.flag = 'Seg'
-            input_embedding = self.embedding_layer(lang_x, vision_x)
+        ### useless for now ignore the folowing codes ###
+        # if labels.shape == vision_x.shape:
+        #    self.embedding_layer.flag = 'Seg'
+        #    input_embedding = self.embedding_layer(lang_x, vision_x)
     
     def generate(self, lang_x,vision_x):
         self.embedding_layer.flag = 'Text'
