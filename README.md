@@ -1,6 +1,9 @@
 # RadFM
 The official code for "Towards Generalist Foundation Model for Radiology"
 
+ (Arxiv)[http://arxiv.org/abs/2308.02463]
+
+ 
 ## Quick Start:
 Downlad [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) and check `./src/test.py` for how to generate text with our model. 
 
