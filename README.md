@@ -14,7 +14,7 @@ Our pre-train code is given in ```./src/train.py```.
 * Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) to get how different datasets are processed and down load them into `./src/Dataset/data_csv` 
 * Modify the path as you disire, and check ```./src/train.py``` to pre-train.
 
-## To-do list:
+## To-do List:
 - Polish the code for easier usage.
 - Update a easy sample for quick start.
 
