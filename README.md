@@ -1,7 +1,7 @@
 # RadFM
 The official code for "Towards Generalist Foundation Model for Radiology"
 
- [Arxiv](http://arxiv.org/abs/2308.02463)
+ [ArXiv](http://arxiv.org/abs/2308.02463)
 
  [Website](https://chaoyi-wu.github.io/RadFM/)
 ## Quick Start:
