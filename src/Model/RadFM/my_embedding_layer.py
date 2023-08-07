@@ -134,6 +134,7 @@ class MyEmbedding(nn.Module):
             text_input = F.one_hot(text_input,embedding_weight.shape[1]).to(vision_x.dtype).to(vision_x.device)
             out_put = torch.matmul(text_input, embedding_weight)
             
+        ## useless for now. ignore the folowing code##    
         if self.flag == 'Seg':
             B,C,H,W,D =  vision_x.shape
             _,N,_ = text_input.shape
