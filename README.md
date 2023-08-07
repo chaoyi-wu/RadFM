@@ -11,7 +11,7 @@ BTW, make sure you have a large GPU. :)
 
 ## Pre-train:
 Our pre-train code is given in ```./src/train.py```. 
-* Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) to get how different datasets are processed and down load them into `./src/Dataset/data_csv` 
+* Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) to get how different datasets are processed and down load them into `./src/Dataset/data_csv` 
 * Modify the path as you disire, and check ```./src/train.py``` to pre-train.
 
 ## To-do List:
@@ -22,7 +22,7 @@ Our pre-train code is given in ```./src/train.py```.
 
 [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM)
 
-[data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (For training usage, downlowd into `./src/Dataset/data_csv`)
+[data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) (For training usage, downlowd into `./src/Dataset/data_csv`)
 
 MedKD Dataset dowloading URL:
 | Dataset Name | Link | Access |
