@@ -135,24 +135,24 @@ class MyEmbedding(nn.Module):
             out_put = torch.matmul(text_input, embedding_weight)
             
         ## useless for now. ignore the folowing code##    
-        if self.flag == 'Seg':
-            B,C,H,W,D =  vision_x.shape
-            _,N,_ = text_input.shape
-            latent_embedding, pos_embedding = self.vision_encoder(vision_x) # B (H/P W/P D/P) D
+        # if self.flag == 'Seg':
+        #    B,C,H,W,D =  vision_x.shape
+        #    _,N,_ = text_input.shape
+        #    latent_embedding, pos_embedding = self.vision_encoder(vision_x) # B (H/P W/P D/P) D
             
-            image_embedding = latent_embedding.transpose(0,1) # (H/P W/P D/P) B  D
-            pos_embedding = pos_embedding.transpose(0,1) # (H/P W/P D/P) B  D
-            text_input = text_input.transpose(0,1) # N B D
+        #    image_embedding = latent_embedding.transpose(0,1) # (H/P W/P D/P) B  D
+        #    pos_embedding = pos_embedding.transpose(0,1) # (H/P W/P D/P) B  D
+        #    text_input = text_input.transpose(0,1) # N B D
             
-            mask_embedding,_ = self.transformer_decoder(text_input, image_embedding, pos = pos_embedding) 
-            mask_embedding = mask_embedding.transpose(0,1) # B N D
-            mask_embedding = rearrange(mask_embedding, 'b n d -> (b n) d')
-            mask_embedding = self.transformer_decoder_mlp(mask_embedding)
-            mask_embedding = rearrange(mask_embedding, '(b n) d -> b n d', b=B, n=N,d = self.vis_dim // 8)
+        #    mask_embedding,_ = self.transformer_decoder(text_input, image_embedding, pos = pos_embedding) 
+        #    mask_embedding = mask_embedding.transpose(0,1) # B N D
+        #    mask_embedding = rearrange(mask_embedding, 'b n d -> (b n) d')
+        #    mask_embedding = self.transformer_decoder_mlp(mask_embedding)
+        #    mask_embedding = rearrange(mask_embedding, '(b n) d -> b n d', b=B, n=N,d = self.vis_dim // 8)
             
-            vision_x = rearrange(latent_embedding,'b (h w d) c -> b c h w d', h = (H // self.patch_size), w = (W // self.patch_size), d = (D // self.frame_patch_size), c=self.vis_dim)
-            vision_x = self.output_upscaling(vision_x) #B C H/4 W/4 D/4
-            out_put = torch.einsum('bchwd,bnc->bnhwd', vision_x, mask_embedding)
+        #    vision_x = rearrange(latent_embedding,'b (h w d) c -> b c h w d', h = (H // self.patch_size), w = (W // self.patch_size), d = (D // self.frame_patch_size), c=self.vis_dim)
+        #    vision_x = self.output_upscaling(vision_x) #B C H/4 W/4 D/4
+        #    out_put = torch.einsum('bchwd,bnc->bnhwd', vision_x, mask_embedding)
         
         return out_put,loss_matching
 
