@@ -13,7 +13,8 @@ In this project, we collect a large-scale medical multi-modal dataset, MedMD, wi
 
 ## Quick Start:
 
-For quick start, you can check the `Quick_demo` path. We demonstrate a simple diagnosis here to show how to inference with our model
+For quick start, you can check the `Quick_demo` path.   
+We demonstrate a simple diagnosis case here to show how to inference with our model. Feel free to modify it as you want.
 
 - S1. Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM).
 - S2. Decompress the original zip file, you can get a  `pytorch_model.bin`.
