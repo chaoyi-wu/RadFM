@@ -1,11 +1,15 @@
 # RadFM
 The official code for "Towards Generalist Foundation Model for Radiology"
 
- [ArXiv](http://arxiv.org/abs/2308.02463)
-
- [Website](https://chaoyi-wu.github.io/RadFM/)
-
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/GIF.gif"/>
+
+[ArXiv](http://arxiv.org/abs/2308.02463)
+
+[Website](https://chaoyi-wu.github.io/RadFM/)
+
+[Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM)
+
+
 
 ## Quick Start:
 Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) and check `./src/test.py` for how to generate text with our model. 
@@ -14,14 +18,6 @@ Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) and check `.
 Our pre-train code is given in ```./src/train.py```. 
 * Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) to get how different datasets are processed and down load them into `./src/Dataset/data_csv` 
 * Modify the path as you disire, and check ```./src/train.py``` to pre-train.
-
-## Case Study:
-
-
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_vqa.jpg"/>
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_report_generation.jpg"/>
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_report.jpg"/>
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_rationale.jpg"/>
 
 ## To-do List:
 - Polish the code for easier usage.
@@ -57,6 +53,15 @@ MedKD Dataset downloading URL:
 | OpenI | https://www.kaggle.com/datasets/raddar/chest-xrays-indiana-university | Open Access |
 | RSNA| https://www.rsna.org/education/ai-resources-and-training/ai-image-challenge/rsna-pneumonia-detection-challenge-2018| Open Access |
 | SIIM-ACR | https://www.kaggle.com/datasets/jesperdramsch/siim-acr-pneumothorax-segmentation-data| Open Access |
+
+## Case Study:
+
+Some cases produced by our final model:
+
+<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_vqa.jpg"/>
+<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_report.jpg"/>
+<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_rationale.jpg"/>
+
 
 ## Acknowledgment:
 We sincerely thank all the contributors who uploaded the relevant data in our dataset online. We appreciate their willingness to make these valuable cases publicly available.
