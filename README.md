@@ -40,12 +40,7 @@ Some cases produced by our final model:
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_report.jpg"/>
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_rationale.jpg"/>
 
-## Key Links
-
-[Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM)
-
-[data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) (For training usage, downlowd into `./src/Dataset/data_csv`)
-
+## Dataset Links:
 MedKD Dataset downloading URL:
 
 | Dataset Name | Link | Access |
@@ -71,9 +66,6 @@ MedKD Dataset downloading URL:
 | OpenI | https://www.kaggle.com/datasets/raddar/chest-xrays-indiana-university | Open Access |
 | RSNA| https://www.rsna.org/education/ai-resources-and-training/ai-image-challenge/rsna-pneumonia-detection-challenge-2018| Open Access |
 | SIIM-ACR | https://www.kaggle.com/datasets/jesperdramsch/siim-acr-pneumothorax-segmentation-data| Open Access |
-
-
-
 
 ## To-do List:
 - Polish the code in `src` for eaiser reading.
