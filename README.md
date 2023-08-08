@@ -22,7 +22,7 @@ For quick start, you can check the `Quick_demo` path. We demonstrate a simple di
     ```Input: Can you identify any visible signs of Cardiomegaly in the image? ```  
     ```Output: yes.``` 
 
-By the way, never try to perform this in cpu :）and GPU is all you need.
+By the way, never try to perform this in cpu and GPU is all you need :）.
 
 ## Pre-train:
 For re-train a model on our dataset or large-sclae test our pre-train model you can check ```src```.
