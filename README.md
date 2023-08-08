@@ -5,7 +5,7 @@ The official code for "Towards Generalist Foundation Model for Radiology"
 
  [Website](https://chaoyi-wu.github.io/RadFM/)
 
-<img src="https://github.com/chaoyi-wu/PMC-LLaMA/blob/main/figures/zero-shot_cases.png"/>
+<img src="https://github.com/chaoyi-wu/RadFM/tree/main/Images/GIF.gif"/>
 
 ## Quick Start:
 Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) and check `./src/test.py` for how to generate text with our model. 
@@ -17,9 +17,12 @@ Our pre-train code is given in ```./src/train.py```.
 
 ## Case Study:
 
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/figures/zero-shot_cases.png"/>
-<img src="https://github.com/chaoyi-wu/PMC-LLaMA/blob/main/figures/zero-shot_cases.png"/>
-<img src="https://github.com/chaoyi-wu/PMC-LLaMA/blob/main/figures/zero-shot_cases.png"/>
+
+<img src="https://github.com/chaoyi-wu/RadFM/tree/main/Images/result_vqa.jpg"/>
+<img src="https://github.com/chaoyi-wu/RadFM/tree/main/Images/result_report_generation.jpg"/>
+<img src="https://github.com/chaoyi-wu/RadFM/tree/main/Images/result_report.jpg"/>
+<img src="https://github.com/chaoyi-wu/RadFM/tree/main/Images/result_rationale.jpg"/>
+
 ## To-do List:
 - Polish the code for easier usage.
 - Update an easy sample for a quick start.
