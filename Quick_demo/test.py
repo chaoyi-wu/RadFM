@@ -113,8 +113,8 @@ def main():
         generation = model.generate(lang_x,vision_x)
         generated_texts = text_tokenizer.batch_decode(generation, skip_special_tokens=True) 
         print('---------------------------------------------------')
-        print(question)
-        print(generated_texts[0])
+        print('Input: ', question)
+        print('Output: ', generated_texts[0])
 
     
 if __name__ == "__main__":

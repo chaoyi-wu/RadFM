@@ -12,16 +12,29 @@ In this project, we collect a large-scale medical multi-modal dataset, MedMD, wi
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/GIF.gif"/>
 
 ## Quick Start:
-Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) and check `./src/test.py` for how to generate text with our model. 
+
+For quick start, you can check the `Quick_demo` path. We demonstrate a simple diagnosis here to show how to inference with our model
+
+- S1. Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM)
+- S2. Decompress the original zip file, you can get a  `pytorch_model.bin`
+- S3. put `pytorch_model.bin` under path `Quick_demo/`
+- S4. python `test.py` and you can get a conversation as `Input: Can you identify any visible signs of Cardiomegaly in the image? Output: yes.` 
 
 ## Pre-train:
-Our pre-train code is given in ```./src/train.py```. 
-* Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) to get how different datasets are processed and down load them into `./src/Dataset/data_csv` 
-* Modify the path as you disire, and check ```./src/train.py``` to pre-train.
+For re-train a model on our dataset or large-sclae test our pre-train model you can check ```src```.
 
-## To-do List:
-- Polish the code for easier usage.
-- Update an easy sample for a quick start.
+Simply ```train.py``` for training and ```test.py``` for testing
+
+* Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) to get how different datasets are processed and download them into `src/Dataset/data_csv` 
+* Modify the path as you disire, and check ```src/train.py``` to pre-train or ```src/train.py``` to test.
+
+## Case Study:
+
+Some cases produced by our final model:
+
+<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_vqa.jpg"/>
+<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_report.jpg"/>
+<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_rationale.jpg"/>
 
 ## Key Links
 
@@ -30,6 +43,7 @@ Our pre-train code is given in ```./src/train.py```.
 [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) (For training usage, downlowd into `./src/Dataset/data_csv`)
 
 MedKD Dataset downloading URL:
+
 | Dataset Name | Link | Access |
 |--------------|------|--------|
 | Rad3D-series | - | Restricted Access |
@@ -54,14 +68,12 @@ MedKD Dataset downloading URL:
 | RSNA| https://www.rsna.org/education/ai-resources-and-training/ai-image-challenge/rsna-pneumonia-detection-challenge-2018| Open Access |
 | SIIM-ACR | https://www.kaggle.com/datasets/jesperdramsch/siim-acr-pneumothorax-segmentation-data| Open Access |
 
-## Case Study:
 
-Some cases produced by our final model:
 
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_vqa.jpg"/>
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_report.jpg"/>
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_rationale.jpg"/>
 
+## To-do List:
+- Polish the code in `src` for eaiser reading.
+- upload huggingface version.
 
 ## Acknowledgment:
 We sincerely thank all the contributors who uploaded the relevant data in our dataset online. We appreciate their willingness to make these valuable cases publicly available.
