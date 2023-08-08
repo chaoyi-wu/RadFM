@@ -1,15 +1,15 @@
 # RadFM
 The official code for "Towards Generalist Foundation Model for Radiology"
 
-<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/GIF.gif"/>
-
 [ArXiv](http://arxiv.org/abs/2308.02463)
 
 [Website](https://chaoyi-wu.github.io/RadFM/)
 
 [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM)
 
+In this project, we collect a large-scale medical multi-modal dataset, MedMD, with 16M 2D or 3D images. We train a new medical multi-modal generative model RadFM on it, enabling both 2D and 3D scans, multi-image input and visual-language interleaving cases.
 
+<img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/GIF.gif"/>
 
 ## Quick Start:
 Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) and check `./src/test.py` for how to generate text with our model. 
