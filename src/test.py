@@ -27,7 +27,7 @@ setup_seed(20)
 class ModelArguments:
     lang_encoder_path: Optional[str] = field(default="/home/cs/leijiayu/wuchaoyi/book_pretrain/Results/Book_mix_2048_13B_full/checkpoint-45800")
     tokenizer_path: str = field(default='/home/cs/leijiayu/wuchaoyi/Finetune_LLAMA/LLAMA_Model/tokenizer', metadata={"help": "Path to the tokenizer data."})   
-    vision_encoder_path: str = field(default='/home/cs/leijiayu/wuchaoyi/multi_modal/src/PMC-CLIP/checkpoint.pt', metadata={"help": "Path to the vision_encoder."})   
+    #vision_encoder_path: str = field(default='/home/cs/leijiayu/wuchaoyi/multi_modal/src/PMC-CLIP/checkpoint.pt', metadata={"help": "Path to the vision_encoder."})   
     
 
 @dataclass
@@ -117,7 +117,6 @@ def main():
     print("Setup Model")
     model = MultiLLaMAForCausalLM(
         lang_model_path=model_args.lang_encoder_path,
-        vision_encoder_path=model_args.vision_encoder_path,
     )
     ckpt = torch.load('/gpfs/home/cs/leijiayu/wuchaoyi/wangyingjie/src/Results/backup/checkpoint-17600/pytorch_model.bin',map_location ='cpu')
     # ckpt.pop('embedding_layer.figure_token_weight')

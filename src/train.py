@@ -24,7 +24,7 @@ def compute_metrics(eval_preds):
 class ModelArguments:
     lang_encoder_path: Optional[str] = field(default="/home/cs/leijiayu/wuchaoyi/book_pretrain/Results/Book_mix_2048_13B_full/checkpoint-45800")
     tokenizer_path: str = field(default='/home/cs/leijiayu/wuchaoyi/Finetune_LLAMA/LLAMA_Model/tokenizer', metadata={"help": "Path to the tokenizer data."})   
-    vision_encoder_path: str = field(default='/home/cs/leijiayu/wuchaoyi/multi_modal/src/PMC-CLIP/checkpoint.pt', metadata={"help": "Path to the vision_encoder."})   
+    
     
 
 @dataclass
@@ -107,7 +107,6 @@ def main():
 
     model = MultiLLaMAForCausalLM(
         lang_model_path=model_args.lang_encoder_path,
-        vision_encoder_path=model_args.vision_encoder_path,
     )
     
     trainer = Trainer(model=model, 
