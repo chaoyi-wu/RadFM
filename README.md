@@ -32,7 +32,7 @@ For re-training a model on our dataset or large-sclae testing our pre-train mode
 
 Simply, ```train.py``` for training and ```test.py``` for testing.
 
-* Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) to get how different datasets are processed and download them into `src/Dataset/data_csv` 
+* Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) to get how different datasets are processed and download them into `src/Dataset/data_csv` 
 * Modify the path as you disire, and check ```src/train.py``` to pre-train or ```src/train.py``` to test.
 
 ## Case Study:
