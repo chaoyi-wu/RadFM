@@ -5,7 +5,7 @@ The official code for "Towards Generalist Foundation Model for Radiology"
 
  [Website](https://chaoyi-wu.github.io/RadFM/)
 
-<img src="https://github.com/chaoyi-wu/RadFM/tree/main/Images/GIF.gif"/>
+![image]("https://github.com/chaoyi-wu/RadFM/tree/main/Images/GIF.gif")
 
 ## Quick Start:
 Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) and check `./src/test.py` for how to generate text with our model. 
