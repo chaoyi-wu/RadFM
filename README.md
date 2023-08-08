@@ -4,16 +4,22 @@ The official code for "Towards Generalist Foundation Model for Radiology"
  [ArXiv](http://arxiv.org/abs/2308.02463)
 
  [Website](https://chaoyi-wu.github.io/RadFM/)
+
+<img src="https://github.com/chaoyi-wu/PMC-LLaMA/blob/main/figures/zero-shot_cases.png"/>
+
 ## Quick Start:
 Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) and check `./src/test.py` for how to generate text with our model. 
-
-BTW, make sure you have a large GPU. :)
 
 ## Pre-train:
 Our pre-train code is given in ```./src/train.py```. 
 * Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) (uploading) to get how different datasets are processed and down load them into `./src/Dataset/data_csv` 
 * Modify the path as you disire, and check ```./src/train.py``` to pre-train.
 
+## Case Study:
+
+<img src="https://github.com/chaoyi-wu/RadFM/blob/main/figures/zero-shot_cases.png"/>
+<img src="https://github.com/chaoyi-wu/PMC-LLaMA/blob/main/figures/zero-shot_cases.png"/>
+<img src="https://github.com/chaoyi-wu/PMC-LLaMA/blob/main/figures/zero-shot_cases.png"/>
 ## To-do List:
 - Polish the code for easier usage.
 - Update an easy sample for a quick start.
