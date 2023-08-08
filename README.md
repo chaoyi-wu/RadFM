@@ -20,6 +20,7 @@ For quick start, you can check the `Quick_demo` path. We demonstrate a simple di
 - S3. put `pytorch_model.bin` under path `Quick_demo/`
 - S4. python `test.py` and you can get a conversation as   
     ```Input: Can you identify any visible signs of Cardiomegaly in the image? ```  
+    <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Quick_demo/view1_frontal.jpg"/>   
     ```Output: yes.``` 
 
 By the way, never try to perform this in cpu and GPU is all you need :）.
