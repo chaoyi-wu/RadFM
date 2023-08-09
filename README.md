@@ -28,7 +28,7 @@ Feel free to modify it as you want.
 By the way, never try to perform this in cpu and gpu is all you need :）.
 
 ## Pre-train:
-For re-training a model on our dataset or large-sclae testing our pre-train model, you can check ```src```.
+For re-training a model on our dataset or large-scale testing our pre-train model, you can check ```src```.
 
 Simply, ```train.py``` for training and ```test.py``` for testing.
 
