@@ -25,9 +25,10 @@ class MyEmbedding(nn.Module):
         self.patch_size = patch_size 
         self.frame_patch_size = frame_patch_size
         self.seg_channel = seg_channel
-
-        self.bert_tokenizer = AutoTokenizer.from_pretrained("/gpfs/home/cs/leijiayu/wuchaoyi/multi_modal/src/MedKEBERT")
-        self.bert_model = AutoModel.from_pretrained("/gpfs/home/cs/leijiayu/wuchaoyi/multi_modal/src/MedKEBERT")
+        
+        ## the MedKEBERT can be downloaded from https://huggingface.co/xmcmic/Med-KEBERT/tree/main ##
+        self.bert_tokenizer = AutoTokenizer.from_pretrained("xmcmic/Med-KEBERT")
+        self.bert_model = AutoModel.from_pretrained("xmcmic/Med-KEBERT")
         self.bert_projection_fc = nn.Linear(768,vis_dim)
         
         self.vision_encoder = ViT(
@@ -80,7 +81,10 @@ class MyEmbedding(nn.Module):
             vision_x = rearrange(vision_x, "(b s F) v d -> b s F v d", b=B, s=S,F=1) 
             
             loss_matching = None
+             
             if key_words_query != None:
+                ## we do not use the following parts in final version. 
+                ## You can quota the following codes and if so the bert models will be useless.
                 # key_words_query list[list[str]] B, words, each word matches corresponding vision_x embedding
                 query_words = [item for sublist in key_words_query for item in sublist]
                 query_words = list(set(query_words))
