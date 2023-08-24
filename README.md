@@ -17,7 +17,7 @@ For quick start, you can check the `Quick_demo` path.
 We demonstrate a simple diagnosis case here to show how to inference with our model.   
 Feel free to modify it as you want.
 
-- S1. Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) or form  [baiduyun](https://pan.baidu.com/s/1A-K5nXCbvWAVqvb6dLjYJg?pwd=q1eo).
+- S1. Download [Model checkpoint](https://huggingface.co/chaoyi-wu/RadFM) or form  [baiduyun](https://pan.baidu.com/s/1A-K5nXCbvWAVqvb6dLjYJg?pwd=q1eo) (No need for decompressing).
 - S2. Decompress the original zip file, you can get a  `pytorch_model.bin`.
 - S3. put `pytorch_model.bin` under path `Quick_demo/`.
 - S4. python `test.py` and you can get a conversation as:   
