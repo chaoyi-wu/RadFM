@@ -71,7 +71,7 @@ def combine_and_preprocess(question,image_list,image_padding_tokens):
     
     vision_x = torch.cat(images,dim = 1).unsqueeze(0) #cat tensors and expand the batch_size dim
     text = ''.join(new_qestions) 
-    return [text], vision_x, 
+    return text, vision_x, 
     
     
 def main():
@@ -106,7 +106,7 @@ def main():
     model.eval() 
     with torch.no_grad():
         lang_x = text_tokenizer(
-                question, max_length=2048, truncation=True, return_tensors="pt"
+                text, max_length=2048, truncation=True, return_tensors="pt"
         )['input_ids'].to('cuda')
         
         vision_x = vision_x.to('cuda')
