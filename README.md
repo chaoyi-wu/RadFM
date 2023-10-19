@@ -1,5 +1,5 @@
 # RadFM
-The official code for "Towards Generalist Foundation Model for Radiology"
+The official code for "Towards Generalist Foundation Model for Radiology by Leveraging Web-scale 2D&3D Medical Data"
 
 [ArXiv](http://arxiv.org/abs/2308.02463)
 
