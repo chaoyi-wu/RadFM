@@ -11,6 +11,9 @@ In this project, we collect a large-scale medical multi-modal dataset, MedMD, wi
 
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/GIF.gif"/>
 
+## Latest News：
+All Datasets are released! We have updated the BaiduYun links in [our dataset table](#dataset-links)  and we will share another links for non-Chinese users in next Week. You can find all our text part data in https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv.
+
 ## Quick Start:
 
 For quick start, you can check the `Quick_demo` path.   
@@ -43,13 +46,13 @@ Some cases produced by our final model:
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_report.jpg"/>
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_rationale.jpg"/>
 
-## Dataset Links:
+## Dataset-Links:
 MedKD Dataset downloading URL:
 
 | Dataset Name | Link | Access |
 |--------------|------|--------|
-| Rad3D-series | - | Restricted Access |
-| MPx-series | - | Restricted Access |
+| Rad3D-series | - | https://pan.baidu.com/s/1PGv4tiLCWZ_NzOFwONvkvQ?pwd=c57u |
+| MPx-series | - | https://pan.baidu.com/s/1tSn6OibIoMZLddagFoMRdw?pwd=mhxb  |
 | PMC-Inline | https://huggingface.co/datasets/chaoyi-wu/PMC-Inline | Open Access |
 | PMC-CaseReport | [Original version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport_original), [Filtered version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport) | Open Access |
 | VinDr-Mammo | https://www.physionet.org/content/vindr-mammo/1.0.0/ | Credentialed Access |
