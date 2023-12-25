@@ -12,7 +12,7 @@ In this project, we collect a large-scale medical multi-modal dataset, MedMD, wi
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/GIF.gif"/>
 
 ## Latest News：
-All Datasets are released! We have updated the BaiduYun links in [our dataset table](#dataset-links)  and we will share another links for non-Chinese users in next Week. You can find all our text part data in https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv. 
+All Datasets are released! We have updated the links in [our dataset table](#dataset-links). You can find all our text part data in https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv. 
 
 We also update the PMC-Figure links which contains all PMC-series datasets' figures, you can download it once and all dataset will use the figures. 
 
@@ -59,8 +59,8 @@ MedKD Dataset downloading URL:
 
 | Dataset Name | Link | Access |
 |--------------|------|--------|
-| Rad3D-series | https://pan.baidu.com/s/1E_uSoCLm5H66a7KkpRfi1g?pwd=urfg  | Open Access |
-| MPx-series | https://pan.baidu.com/s/1tSn6OibIoMZLddagFoMRdw?pwd=mhxb | Open Access |
+| Rad3D-series | https://pan.baidu.com/s/1E_uSoCLm5H66a7KkpRfi1g?pwd=urfg | Open Access |
+| MPx-series | https://pan.baidu.com/s/1tSn6OibIoMZLddagFoMRdw?pwd=mhxb or https://huggingface.co/datasets/chaoyi-wu/MedPix-Images/viewer/default/train?p=1 | Open Access |
 | PMC-Figures| https://pan.baidu.com/s/1Src_rhXsaOFp8zJ_3zMFsQ?pwd=p3ne | Open Access |
 | PMC-Inline | https://huggingface.co/datasets/chaoyi-wu/PMC-Inline | Open Access |
 | PMC-CaseReport | [Original version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport_original), [Filtered version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport) | Open Access |
