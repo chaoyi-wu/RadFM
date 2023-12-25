@@ -82,10 +82,6 @@ MedKD Dataset downloading URL:
 | RSNA| https://www.rsna.org/education/ai-resources-and-training/ai-image-challenge/rsna-pneumonia-detection-challenge-2018| Open Access |
 | SIIM-ACR | https://www.kaggle.com/datasets/jesperdramsch/siim-acr-pneumothorax-segmentation-data| Open Access |
 
-## To-do List:
-- Polish the code in `src` for eaiser reading.
-- upload huggingface version.
-
 ## Acknowledgment:
 We sincerely thank all the contributors who uploaded the relevant data in our dataset online. We appreciate their willingness to make these valuable cases publicly available.
 
