@@ -59,7 +59,7 @@ MedKD Dataset downloading URL:
 
 | Dataset Name | Link | Access |
 |--------------|------|--------|
-| Rad3D-series | https://pan.baidu.com/s/1RpAMmTvteuS-coWtIoziyg?pwd=gfek  or https://onedrive.live.com/?id=FCA8CA4C877919CB!23996&resid=FCA8CA4C877919CB!23996&ithint=folder&authkey=!AN6taBTpTQ16xqA&cid=fca8ca4c877919cb | Open Access |
+| Rad3D-series | https://pan.baidu.com/s/1RpAMmTvteuS-coWtIoziyg?pwd=gfek  or https://1drv.ms/f/s!AssZeYdMyqj8gbs83q1oFOlNDXrGoA | Open Access |
 | MPx-series | https://pan.baidu.com/s/1tSn6OibIoMZLddagFoMRdw?pwd=mhxb or https://huggingface.co/datasets/chaoyi-wu/MedPix-Images/viewer/default/train?p=1 | Open Access |
 | PMC-Figures| https://pan.baidu.com/s/1Src_rhXsaOFp8zJ_3zMFsQ?pwd=p3ne | Open Access |
 | PMC-Inline | https://huggingface.co/datasets/chaoyi-wu/PMC-Inline | Open Access |
