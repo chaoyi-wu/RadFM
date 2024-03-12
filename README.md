@@ -14,8 +14,6 @@ In this project, we collect a large-scale medical multi-modal dataset, MedMD, wi
 ## Latest News：
 All Datasets are released! We have updated the links in [our dataset table](#dataset-links). You can find all our text part data in https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv. 
 
-We also update the PMC-Figure links which contains all PMC-series datasets' figures, you can download it once and all dataset will use the figures. 
-
 For decompressing the splited compression files in most cases, please check the following code in linux:
 ```
 cat zip.z* > myzip.zip
@@ -59,8 +57,8 @@ MedKD Dataset downloading URL:
 
 | Dataset Name | Link | Access |
 |--------------|------|--------|
-| Rad3D-series | https://pan.baidu.com/s/1RpAMmTvteuS-coWtIoziyg?pwd=gfek  or https://1drv.ms/f/s!AssZeYdMyqj8gbs8R57V9fIh3Cv2-Q?e=DCnbJs | Open Access |
-| MPx-series | https://pan.baidu.com/s/1tSn6OibIoMZLddagFoMRdw?pwd=mhxb or https://huggingface.co/datasets/chaoyi-wu/MedPix-Images/viewer/default/train?p=1 | Open Access |
+| Rad3D-series | - | Closed |
+| MPx-series | - | Closed |
 | PMC-Figures| https://pan.baidu.com/s/1Src_rhXsaOFp8zJ_3zMFsQ?pwd=p3ne | Open Access |
 | PMC-Inline | https://huggingface.co/datasets/chaoyi-wu/PMC-Inline | Open Access |
 | PMC-CaseReport | [Original version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport_original), [Filtered version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport) | Open Access |
