@@ -1880,9 +1880,10 @@ class Trainer:
 
         total_batched_samples = 0
         for epoch in range(epochs_trained, num_train_epochs):
-            if isinstance(train_dataloader, DataLoader) and isinstance(train_dataloader.sampler, DistributedSampler):
+            ### 吴超逸加 ###
+            if isinstance(train_dataloader, DataLoader) and (isinstance(train_dataloader.sampler, DistributedSampler) or self.args.data_sampler != None):
                 train_dataloader.sampler.set_epoch(epoch)
-            elif hasattr(train_dataloader, "dataset") and isinstance(train_dataloader.dataset, IterableDatasetShard):
+            elif hasattr(train_dataloader, "dataset") and (isinstance(train_dataloader.sampler, DistributedSampler) or self.args.data_sampler != None):
                 train_dataloader.dataset.set_epoch(epoch)
 
             if is_torch_tpu_available():
