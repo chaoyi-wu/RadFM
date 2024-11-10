@@ -53,7 +53,7 @@ Some cases produced by our final model:
 <img src="https://github.com/chaoyi-wu/RadFM/blob/main/Images/result_rationale.jpg"/>
 
 ## Dataset-Links:
-MedKD Dataset downloading URL:
+Datasets downloading URL:
 
 | Dataset Name | Link | Access |
 |--------------|------|--------|
@@ -79,6 +79,36 @@ MedKD Dataset downloading URL:
 | OpenI | https://www.kaggle.com/datasets/raddar/chest-xrays-indiana-university | Open Access |
 | RSNA| https://www.rsna.org/education/ai-resources-and-training/ai-image-challenge/rsna-pneumonia-detection-challenge-2018| Open Access |
 | SIIM-ACR | https://www.kaggle.com/datasets/jesperdramsch/siim-acr-pneumothorax-segmentation-data| Open Access |
+
+The split of each dataset can be found in https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv you just need to download the image part from each datasets.
+
+## Dataset Code and Files Linking:
+MedKD Dataset downloading URL:
+
+| Dataset Name | Process Dataset Code | Related Filename |
+|--------------|------|--------|
+| Rad3D-series | [jpg2nii Process Code](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/jpg2nii_data_convert.py), [nii2npy Process Code](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/nii2npy_for_radiopaedio.py), [Final Datset to Read npy and Related Texts](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/radiopaedia.py) | radiology_article_npy_train/test.json  |
+| MPx-series | [MedPix Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/MedPix_dataset.py) | MedPix_muli_train/test.csv, MedPix_single_train/test.csv|
+| PMC-Inline | [Paper-inline Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/paper_inline.py) | paper_train.csv (This dataset is not used for evaluation) |
+| PMC-CaseReport | [Case-report Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/case_report.py) | filtered_case_report_train/test.csv |
+| VinDr-Mammo | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | mammo_balance_train/test.csv |
+| VinDr-SpineXR | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | spinexr_balance_train/test.csv |
+| VinDr-PCXR | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | pcxr_balance_train/test.csv |
+| PMC-OA | [Pmcoa Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/pmcoa.py) | pmcoa_image_caption_train/test.csv |
+| PMC-VQA | [vqa Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/vqa.py) | pmcvaq_train/test.csv|
+| VQA-RAD | [vqa Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/vqa.py)| vqarad_train/test.csv |
+| SLAKE | [vqa Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/vqa.py) | slakevqa_train/test.csv |
+| MIMIC-CXR | [CXR Open Captioning Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py) | mimic_caption_train/test.csv |
+| VinDr-CXR | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | chestxray_balance_train_new.csv,  chestxray_balance_test.csv|
+| NIH ChestXray14 | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | chestxray_balance_train_new.csv,  chestxray_balance_test.csv |
+| CheXpert | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | chestxray_balance_train_new.csv,  chestxray_balance_test.csv |
+| Covid-CXR2 | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | chestxray_balance_train_new.csv,  chestxray_balance_test.csv |
+| NLM-TB | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | chestxray_balance_train_new.csv,  chestxray_balance_test.csv |
+| Object-CXR | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | chestxray_balance_train_new.csv,  chestxray_balance_test.csv |
+| OpenI | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | chestxray_balance_train_new.csv,  chestxray_balance_test.csv |
+| RSNA| [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py)| chestxray_balance_train_new.csv,  chestxray_balance_test.csv |
+| SIIM-ACR | [Diagnosis Open Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/chestxray.py), [Diagnosis Close (yes/no) Format Dataset](https://github.com/chaoyi-wu/RadFM/blob/main/src/Dataset/dataset/binary.py) | chestxray_balance_train_new.csv,  chestxray_balance_test.csv|
+
 
 ## Acknowledgment:
 We sincerely thank all the contributors who uploaded the relevant data in our dataset online. We appreciate their willingness to make these valuable cases publicly available.
