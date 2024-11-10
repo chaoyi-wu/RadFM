@@ -21,7 +21,7 @@ from torchvision import transforms
 from collections import defaultdict
 from PIL import Image
 
-class PMCVQA_Dataset(Dataset):
+class VQA_Dataset(Dataset):
     """_summary_
     Args:
         Dataset (_type_):  
