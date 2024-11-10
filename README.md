@@ -83,7 +83,7 @@ Datasets downloading URL:
 The split of each dataset can be found in https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv you just need to download the image part from each datasets.
 
 ## Dataset Code and Files Linking:
-MedKD Dataset downloading URL:
+Check the following table to see how to process each dataset and how each file in https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv is linked to each dataset:
 
 | Dataset Name | Process Dataset Code | Related Filename |
 |--------------|------|--------|
