@@ -57,8 +57,8 @@ Datasets downloading URL:
 
 | Dataset Name | Link | Access |
 |--------------|------|--------|
-| Rad3D-series | - | Closed |
-| MPx-series | - | Closed |
+| Rad3D-series | - | Please mail the Radiopaedia team to obtain access approvement. Then we can share with you. |
+| MPx-series | - | Download from the official websit. |
 | PMC-Figures| https://pan.baidu.com/s/1Src_rhXsaOFp8zJ_3zMFsQ?pwd=p3ne | Open Access |
 | PMC-Inline | https://huggingface.co/datasets/chaoyi-wu/PMC-Inline | Open Access |
 | PMC-CaseReport | [Original version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport_original), [Filtered version](https://huggingface.co/datasets/chaoyi-wu/PMC-CaseReport) | Open Access |
