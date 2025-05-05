@@ -1,3 +1,4 @@
+# Import necessary libraries for data processing, image handling, and model integration
 from torch.utils.data import Dataset
 import numpy as np
 import transformers
@@ -16,18 +17,36 @@ from torchvision import transforms
 from ast import literal_eval
 import re
 import math
+
 class MedPix_Single_Dataset(Dataset):
-    def __init__(self, csv_path, img_root = "/gpfs/home/cs/leijiayu/data/MedPix/images/",down_sample_ratio = 5):
+    """
+    Dataset class for single-image MedPix data.
+    
+    Processes single medical images with various prompts related to modality,
+    plane orientation, and general image captioning.
+    """
+    def __init__(self, csv_path, img_root="/gpfs/home/cs/leijiayu/data/MedPix/images/", down_sample_ratio=5):
+        """
+        Initialize the dataset.
+        
+        Args:
+            csv_path: Path to CSV file containing image metadata
+            img_root: Root directory for images
+            down_sample_ratio: Factor to reduce dataset size
+        """
         self.case_list = pd.read_csv(csv_path)
         self.img_root = img_root
-        #normalize = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+        # Image transformation pipeline
         self.transform = transforms.Compose([                        
-                transforms.RandomResizedCrop([512,512],scale=(0.8, 1.0), interpolation=transforms.InterpolationMode.BICUBIC),
+                transforms.RandomResizedCrop([512, 512], scale=(0.8, 1.0), interpolation=transforms.InterpolationMode.BICUBIC),
                 transforms.ToTensor(),
-                #normalize,
+                # normalize,  # Commented out normalization
             ])  
         self.down_sample_ratio = down_sample_ratio
+        
+        # Define template prompts for different tasks
         self.promt = {
+            # Image captioning prompts
             "caption": [
                 "Describe this input image.",
                 "Help captioning the image.",
@@ -40,6 +59,7 @@ class MedPix_Single_Dataset(Dataset):
                 "What can be indicated from the radiologic scans?",
                 "What can you infer from this photograph?",
             ],
+            # Modality identification prompts
             "modality": [
                 "What is the modality of the image?",
                 "What type of imaging technique was utilized?",
@@ -54,6 +74,7 @@ class MedPix_Single_Dataset(Dataset):
                 "What type of image modality was used here?",
                 "Can you describe the imaging technique used?"
             ],
+            # Plane orientation prompts
             "plane": [
                 "Please distinguish the plane of the image",
                 "Which view does this scan take from?",
@@ -68,6 +89,7 @@ class MedPix_Single_Dataset(Dataset):
                 "Can you determine the shot direction of this image?",
                 "Can you describe the plane of this image?",
             ],
+            # Yes/no prompts for modality
             "modality_yes_no": [
                 "Is this image shot in {object}?",
                 "Is this image in {object}?",
@@ -78,6 +100,7 @@ class MedPix_Single_Dataset(Dataset):
                 "Is this picture from {object}?",
                 "Is this scan shot in {object}?"
             ],
+            # Yes/no prompts for plane orientation
             "plane_yes_no": [
                 "Is this image shot from {object} view?",
                 "Is this image in the view of {object}?",
@@ -89,6 +112,8 @@ class MedPix_Single_Dataset(Dataset):
                 "Is this snapshot from the view of {object}?",
             ],
         }
+        
+        # Lists of possible values for modality and plane categories
         self.sample_list = { 
                 'modality': ['HE - High Power (>200X)', 'MR - FLAIR', 'Mammograph', 'SPECT', 
                               'MR - FLAIR w/Gd', 'UGI - Upper GI', 'OPHTH - Fundoscopy', 'SBFT - Small Bowel', 
@@ -119,44 +144,74 @@ class MedPix_Single_Dataset(Dataset):
         
         
     def __len__(self):
+        """Return effective length of dataset after downsampling"""
         return math.ceil(len(self.case_list)/self.down_sample_ratio)
     
     def get_image(self, img_path):
+        """
+        Load and preprocess an image
+        
+        Args:
+            img_path: Path to the image file
+            
+        Returns:
+            Processed image tensor with shape [C, H, W, 1]
+        """
         image = Image.open(img_path).convert('RGB')   
         image = self.transform(image)
-        image = image.unsqueeze(-1) 
+        image = image.unsqueeze(-1)  # Add depth dimension [C, H, W, 1]
         return image
     
     
     def __getitem__(self, idx):
-        idx = (self.down_sample_ratio*idx +random.randint(0,self.down_sample_ratio-1))%len(self.case_list)
+        """
+        Get a single sample from the dataset
+        
+        Args:
+            idx: Index of the sample to retrieve
+            
+        Returns:
+            Dictionary containing processed sample with image, question, and answer
+        """
+        # Apply downsampling with random offset
+        idx = (self.down_sample_ratio*idx + random.randint(0, self.down_sample_ratio-1)) % len(self.case_list)
         sample = self.case_list.iloc[idx]
         answer = sample['context']
+        
+        # Handle different question types
         if sample['type'] == "modality" or sample['type'] == "plane":
             pp = random.random()
-            if pp>0.5:
-                question = random.sample(self.promt[sample['type']],1)[0]
+            if pp > 0.5:
+                # Direct question about modality or plane
+                question = random.sample(self.promt[sample['type']], 1)[0]
             else:
-                question = random.sample(self.promt[sample['type']+'_yes_no'],1)[0]
+                # Yes/no question about modality or plane
+                question = random.sample(self.promt[sample['type']+'_yes_no'], 1)[0]
                 ppp = random.random()
-                if ppp> 0.5:
-                    question = question.format(object = answer)
+                if ppp > 0.5:
+                    # True case - format question with correct attribute
+                    question = question.format(object=answer)
                     answer = 'yes'
                 else:
+                    # False case - randomly select a different attribute
                     sample_list = self.sample_list[sample['type']]
                     try:
                         sample_list.remove(answer)
                     except:
                         pass
-                    answer = random.sample(sample_list,1)[0]
-                    question = question.format(object = answer)
+                    answer = random.sample(sample_list, 1)[0]
+                    question = question.format(object=answer)
                     answer = 'no'        
         else:
-            question = random.sample(self.promt[sample['type']],1)[0]
+            # For other types, just select a random prompt
+            question = random.sample(self.promt[sample['type']], 1)[0]
+            
+        # Randomly decide where to position the image - before or after question
         p = random.random()
         images = []
-        if p>0.5:
+        if p > 0.5:
             try:
+                # Place image after question
                 images.append(
                     {
                         "image": self.get_image(self.img_root+sample['name']),
@@ -169,6 +224,7 @@ class MedPix_Single_Dataset(Dataset):
                 pass
         else:
             try:
+                # Place image before question
                 images.append(
                     {
                         "image": self.get_image(self.img_root+sample['name']),
@@ -179,6 +235,8 @@ class MedPix_Single_Dataset(Dataset):
                 )   
             except:
                 pass   
+                
+        # Return formatted sample
         return {
             "image_dict": images,
             "question": str(question),
@@ -186,17 +244,32 @@ class MedPix_Single_Dataset(Dataset):
             }
 
 class MedPix_Multi_Dataset(Dataset):
-    def __init__(self, csv_path, img_root = "/gpfs/home/cs/leijiayu/data/MedPix/images/"):
+    """
+    Dataset class for multi-image MedPix data.
+    
+    Processes cases with multiple medical images and supports various 
+    diagnostic and analytical prompts.
+    """
+    def __init__(self, csv_path, img_root="/gpfs/home/cs/leijiayu/data/MedPix/images/"):
+        """
+        Initialize the dataset.
+        
+        Args:
+            csv_path: Path to CSV file containing case metadata
+            img_root: Root directory for images
+        """
         self.case_list = pd.read_csv(csv_path)
         self.img_root = img_root
-        #normalize = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+        # Image transformation pipeline
         self.transform = transforms.Compose([                        
-                transforms.RandomResizedCrop([512,512],scale=(0.8, 1.0), interpolation=transforms.InterpolationMode.BICUBIC),
+                transforms.RandomResizedCrop([512, 512], scale=(0.8, 1.0), interpolation=transforms.InterpolationMode.BICUBIC),
                 transforms.ToTensor(),
-                #normalize,
+                # normalize,  # Commented out normalization
             ]) 
         
+        # Define template prompts for different diagnostic tasks
         self.promt = {
+            # Treatment and follow-up prompts
             "txFollowup": [
                 "What treatment should the patient take?",
                 "Please give me some treatment advise.",
@@ -209,6 +282,7 @@ class MedPix_Multi_Dataset(Dataset):
                 "What treatment should be administered for this illness?",
                 "What is the most effective treatment for this disease?"
             ],
+            # Differential diagnosis prompts
             "ddx": [
                 "What illness can you diagnose from this images?",
                 "What disease is shown in the scans?",
@@ -221,6 +295,7 @@ class MedPix_Multi_Dataset(Dataset):
                 "Can you identify the disease from these scans?",
                 "What is the medical diagnosis based on these images?",
             ],
+            # Diagnostic method prompts
             "dxHow": [
                 "What imaging technology is used for diagnosis?",
                 "What imaging tests are shown in the images?",
@@ -233,18 +308,8 @@ class MedPix_Multi_Dataset(Dataset):
                 "Can you name the imaging tests shown in these photographs?",
                 "Please distinguish the imaging type in these images",
             ],
-            # "diagnosis_yes_no":[
-            #     "Does the patient have {object}?",
-            #     "Is the patient infected with {object}?", 
-            #     "Does the patient test positive for {object}?", 
-            #     "Is the patient suffering from {object}?", 
-            #     "Has the patient contracted {object}?",
-            #     "Is the patient diagnosed with {object}?",
-            #     "Is the patient affected by {object}?",
-            #     "Is the patient carrying the {object} virus?",
-            #     "Is the patient stricken with {object}?",
-            # ],  
-            "diagnosis":[
+            # General diagnosis prompts
+            "diagnosis": [
                 "What condition can be diagnosed from these pictures?",
                 "Can you interpret the disease from these medical scans?",
                 "What medical condition is depicted in these images?",
@@ -263,7 +328,8 @@ class MedPix_Multi_Dataset(Dataset):
                 "Based on these scans, what is the patient suffering from?",
                 "What ailment can be deduced from these medical images?",
             ], 
-            "findings":[
+            # Findings description prompts
+            "findings": [
                 "Caption the case.",
                 "Describe your findings for this patient.",
                 "What is shown in the case?",
@@ -277,19 +343,21 @@ class MedPix_Multi_Dataset(Dataset):
                 "What is your analysis of the patient?",
                 "Can you provide a brief on the patient?"
             ],
-            "exam":[
+            # Exam result prompts
+            "exam": [
                 "Make a conclusion for this patient.",
                 "What are the exam results for this patient?",
                 "What is the diagnosis for this patient?",
                 "What are the symptoms presented by this patient?",
                 "Please make diagnosis with the input case.",
-                "Is there any abnormality  with the presented case?",
+                "Is there any abnormality with the presented case?",
                 "What can be reflected from the input images?",
                 "Please provide me with some diagnosis advise.",
                 "Can you provide a summary of the patient's condition?",
                 "Can you provide a detailed analysis of the patient's condition?"
             ],
-            "discussion":[
+            # Case discussion prompts
+            "discussion": [
                 "Discuss about the case more.",
                 "Tell more about the patient's illness.",
                 "What image patterns or knowledge can help you make diagnosis?",
@@ -306,33 +374,62 @@ class MedPix_Multi_Dataset(Dataset):
         }  
         
     def __len__(self):
+        """Return the total number of cases in the dataset"""
         return len(self.case_list)
     
     def get_image(self, img_path):
+        """
+        Load and preprocess an image
+        
+        Args:
+            img_path: Path to the image file
+            
+        Returns:
+            Processed image tensor with shape [C, H, W, 1]
+        """
         image = Image.open(img_path).convert('RGB')   
         image = self.transform(image)
-        image = image.unsqueeze(-1) 
+        image = image.unsqueeze(-1)  # Add depth dimension [C, H, W, 1]
         return image
     
     
     def __getitem__(self, idx):
+        """
+        Get a single case from the dataset
+        
+        Args:
+            idx: Index of the case to retrieve
+            
+        Returns:
+            Dictionary containing processed case with images, question, and answer
+        """
         sample = self.case_list.iloc[idx]
-        answer = str(sample['context']).replace('• ','')
-        question = random.sample(self.promt[sample['type']],1)[0]    
-        #question = random.sample(self.promt[sample['type']],1)[0]
+        
+        # Clean up answer text by removing bullet points
+        answer = str(sample['context']).replace('• ', '')
+        
+        # Select random prompt for the specific task type
+        question = random.sample(self.promt[sample['type']], 1)[0]
+        
+        # Optionally prepend patient history to the question
         history = sample['history']
         if history is not None:
             p = random.random()
-            if p>0.5:
+            if p > 0.5:
                 try:
                     question = history + ' ' + question
                 except:
                     pass
+                    
+        # Process all images associated with this case
         image_names = sample['name'].split(',')
         p = random.random()
         images = []
-        if p>0.5:
-            for pp in  image_names:
+        
+        # Randomly decide whether to put images after or before question
+        if p > 0.5:
+            # Place images after question
+            for pp in image_names:
                 try:
                     images.append(
                         {
@@ -345,7 +442,8 @@ class MedPix_Multi_Dataset(Dataset):
                 except:
                     pass
         else:
-            for pp in  image_names:
+            # Place images before question
+            for pp in image_names:
                 try:
                     images.append(
                         {
@@ -357,50 +455,94 @@ class MedPix_Multi_Dataset(Dataset):
                     ) 
                 except:
                     pass
-        if  sample['type'] =="findings":
+                    
+        # For findings, remove measurements which might be distracting
+        if sample['type'] == "findings":
             pattern = r"\d+(\.\d+)?\s*(mm|cm|x\d+\s*cm)"
             answer = re.sub(pattern, "", answer)
+            
+        # Limit number of images to prevent memory issues
         if len(images) > 10:
-            images = random.sample(images,10)
+            images = random.sample(images, 10)
+            
+        # Return formatted case
         return {
             "image_dict": images,
             "question": str(question),
-            "answer":str(answer),
+            "answer": str(answer),
             }
 
 class MedPix_QA_Dataset(Dataset):
-    def __init__(self, csv_path, img_root = "/gpfs/home/cs/leijiayu/data/MedPix/images/"):
+    """
+    Dataset class for MedPix question-answer pairs.
+    
+    Processes medical QA pairs with associated images.
+    """
+    def __init__(self, csv_path, img_root="/gpfs/home/cs/leijiayu/data/MedPix/images/"):
+        """
+        Initialize the dataset.
+        
+        Args:
+            csv_path: Path to CSV file containing QA pairs
+            img_root: Root directory for images
+        """
         self.case_list = pd.read_csv(csv_path)
         self.img_root = img_root
-        #normalize = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+        # Image transformation pipeline
         self.transform = transforms.Compose([                        
-                transforms.RandomResizedCrop([512,512],scale=(0.8, 1.0), interpolation=transforms.InterpolationMode.BICUBIC),
+                transforms.RandomResizedCrop([512, 512], scale=(0.8, 1.0), interpolation=transforms.InterpolationMode.BICUBIC),
                 transforms.ToTensor(),
-                #normalize,
+                # normalize,  # Commented out normalization
             ]) 
                 
     def __len__(self):
+        """Return the total number of QA pairs in the dataset"""
         return len(self.case_list)
     
     def get_image(self, img_path):
+        """
+        Load and preprocess an image
+        
+        Args:
+            img_path: Path to the image file
+            
+        Returns:
+            Processed image tensor with shape [C, H, W, 1]
+        """
         image = Image.open(img_path).convert('RGB')   
         image = self.transform(image)
-        image = image.unsqueeze(-1) 
+        image = image.unsqueeze(-1)  # Add depth dimension [C, H, W, 1]
         return image
     
     
     def __getitem__(self, idx):
+        """
+        Get a single QA pair from the dataset
+        
+        Args:
+            idx: Index of the QA pair to retrieve
+            
+        Returns:
+            Dictionary containing processed QA pair with image, question, and answer
+        """
         sample = self.case_list.iloc[idx]
+        
+        # Extract question, answer and explanation
         answer = sample['answer']
         question = sample['question']
         explanation = sample['explanation']
+        
+        # Combine answer with explanation when available
         try:
-            answer = answer + '. '+ explanation
+            answer = answer + '. ' + explanation
         except:
             pass
+            
+        # Randomly decide whether to place image before or after question
         p = random.random()
         images = []
-        if p>0.5:
+        if p > 0.5:
+            # Place image after question
             try:
                 images.append(
                     {
@@ -413,6 +555,7 @@ class MedPix_QA_Dataset(Dataset):
             except:
                 pass
         else:
+            # Place image before question
             try:
                 images.append(
                     {
@@ -424,29 +567,33 @@ class MedPix_QA_Dataset(Dataset):
                 )   
             except:
                 pass  
+                
+        # Limit number of images to prevent memory issues
         if len(images) > 10:
-            images = random.sample(images,10) 
+            images = random.sample(images, 10) 
+            
+        # Return formatted QA pair
         return {
             "image_dict": images,
             "question": str(question),
             "answer": str(answer),
             }
                 
+# Example usage (commented out)
 # dataset = MedPix_Single_Dataset(csv_path = '/gpfs/home/cs/leijiayu/data/MedPix/Preprocessor/MedPix_single_train.csv')
 # for i in tqdm.tqdm(range(len(dataset))):
 #     sample = dataset[i]
-#     print(len(sample['image_dict']),sample['image_dict'][0]["image"].shape,sample['question'],sample['answer'])
+#     print(len(sample['image_dict']), sample['image_dict'][0]["image"].shape, sample['question'], sample['answer'])
 #     input()
 
 # dataset = MedPix_Multi_Dataset(csv_path = '/gpfs/home/cs/leijiayu/data/MedPix/Preprocessor/MedPix_multi_train.csv')
 # for i in tqdm.tqdm(range(len(dataset))):
 #     sample = dataset[i]
-#     print(len(sample['image_dict']),sample['image_dict'][0]["image"].shape,sample['question'],sample['answer'])
+#     print(len(sample['image_dict']), sample['image_dict'][0]["image"].shape, sample['question'], sample['answer'])
 #     input()
     
 # dataset = MedPix_QA_Dataset(csv_path = '/gpfs/home/cs/leijiayu/data/MedPix/Preprocessor/MedPix_questions_train.csv')
 # for i in tqdm.tqdm(range(len(dataset))):
 #     sample = dataset[i]
-#     print(len(sample['image_dict']),sample['image_dict'][0]["image"].shape,sample['question'],sample['answer'])
+#     print(len(sample['image_dict']), sample['image_dict'][0]["image"].shape, sample['question'], sample['answer'])
 #     input()
-        
