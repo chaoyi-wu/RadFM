@@ -44,7 +44,7 @@ Simply, ```train.py``` for training and ```test.py``` for testing.
 * Check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) to get how different datasets are processed and download them into `src/Dataset/data_csv` 
 * Modify the path as you disire, and check ```src/train.py``` to pre-train or ```src/train.py``` to test.
 
-## A Detailed Code Explanation Guideline:
+## A Detailed Code Explanation:
 In this part we will introduce the ```src``` directory in detail and the `Quick_demo` is similar.
 
 ### Dataset
