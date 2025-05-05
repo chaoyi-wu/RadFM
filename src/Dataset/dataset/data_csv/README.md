@@ -1,0 +1,1 @@
+Please check the [data_csv](https://huggingface.co/datasets/chaoyi-wu/RadFM_data_csv) to download the used train/test split csv files and ensure the image path are related to your local path. 

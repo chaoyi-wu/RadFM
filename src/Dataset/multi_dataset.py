@@ -322,7 +322,9 @@ class multi_dataset(Dataset):
         reweight_tensor = find_position(labels, key_embeddings)
         if dataset_index == 'paper_inline_dataset':
             emphasize_words = []
-        # print(labels,key_embeddings,reweight_tensor)
+        
+        # now the 'key_words_query' are useless
+        
         return {'vision_x': vision_x,'lang_x':lang_x, 'attention_mask': attention_mask, 'labels':labels, 'loss_reweight': reweight_tensor, 'key_words_query': emphasize_words}
     
     def text_add_image(self,images,question,answer):
